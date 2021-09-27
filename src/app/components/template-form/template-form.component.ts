@@ -13,8 +13,9 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(form: FormGroup){
-    console.log(form.value);
+  login(ngForm: NgForm){
+    console.log(ngForm);
+    console.log(ngForm.form.value);
   }
 
 }
