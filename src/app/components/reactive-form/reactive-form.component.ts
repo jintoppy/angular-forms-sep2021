@@ -12,4 +12,8 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login(){
+    
+  }
+
 }
