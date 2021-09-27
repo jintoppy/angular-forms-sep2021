@@ -1,16 +1,25 @@
 <h2>Reactive</h2>
 
-<form autocomplete="off">
+<form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="login()">
     <div>
         <label for="username">Username: </label>
-        <input id="username" name="username" type="text" required minlength="4">
+        <input formControlName="username">
     </div>
 
     <div>
         <label for="password">Password: </label>
-        <input id="password" type="password" name="password" required>
+        <input type="password" formControlName="password">
     </div>
     <div>
         <button>Login</button>
     </div>
 </form>
+
+<div *ngIf="loginForm.dirty">
+    <div *ngIf="loginForm.get('username')?.errors?.required">
+        username is required
+    </div>
+    <div *ngIf="loginForm.get('username')?.errors?.minlength">
+        username requires minimum {{loginForm.get('username')?.errors?.minlength.requiredLength}} characters
+    </div>
+</div>
